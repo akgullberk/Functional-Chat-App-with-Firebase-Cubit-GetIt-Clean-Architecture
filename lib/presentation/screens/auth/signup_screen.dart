@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/core/common/custom_button.dart';
 import 'package:messenger_app/core/common/custom_text_field.dart';
+import 'package:messenger_app/data/services/service_locator.dart';
+import 'package:messenger_app/router/app_router.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});

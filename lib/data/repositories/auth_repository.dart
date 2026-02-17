@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:messenger_app/data/models/user_model.dart';
 import 'package:messenger_app/data/services/base_repository.dart';
 
 class AuthRepository extends BaseRepository {
