@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:messenger_app/data/repositories/auth_repository.dart';
+import 'package:messenger_app/data/repositories/contact_repository.dart';
 import 'package:messenger_app/data/services/service_locator.dart';
 import 'package:messenger_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:messenger_app/presentation/screens/auth/login_screen.dart';
