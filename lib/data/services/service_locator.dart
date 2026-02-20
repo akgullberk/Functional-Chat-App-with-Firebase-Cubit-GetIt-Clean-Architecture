@@ -23,4 +23,5 @@ Future<void> setupServiceLocator() async {
   getIt.registerLazySingleton(
     () => AuthCubit(authRepository: AuthRepository()),
   );
+  
 }

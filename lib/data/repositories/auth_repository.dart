@@ -15,8 +15,10 @@ class AuthRepository extends BaseRepository {
     required String password,
   }) async {
     try {
-      final formattedPhoneNumber =
-          phoneNumber.replaceAll(RegExp(r'\s+'), "".trim());
+      final formattedPhoneNumber = phoneNumber.replaceAll(
+        RegExp(r'\s+'),
+        "".trim(),
+      );
 
       final emailExists = await checkEmailExists(email);
       if (emailExists) {
@@ -28,7 +30,9 @@ class AuthRepository extends BaseRepository {
       }
 
       final userCredential = await auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       if (userCredential.user == null) {
         throw "Failed to create user";
       }
@@ -51,8 +55,12 @@ class AuthRepository extends BaseRepository {
 
   Future<bool> checkEmailExists(String email) async {
     try {
-      final methods = await auth.fetchSignInMethodsForEmail(email);
-      return methods.isNotEmpty;
+      final querySnapshot = await firestore
+          .collection("users")
+          .where("email", isEqualTo: email)
+          .get();
+
+      return querySnapshot.docs.isNotEmpty;
     } catch (e) {
       print("Error checking email: $e");
       return false;
@@ -61,8 +69,10 @@ class AuthRepository extends BaseRepository {
 
   Future<bool> checkPhoneExists(String phoneNumber) async {
     try {
-      final formattedPhoneNumber =
-          phoneNumber.replaceAll(RegExp(r'\s+'), "".trim());
+      final formattedPhoneNumber = phoneNumber.replaceAll(
+        RegExp(r'\s+'),
+        "".trim(),
+      );
       final querySnapshot = await firestore
           .collection("users")
           .where("phoneNumber", isEqualTo: formattedPhoneNumber)
@@ -81,7 +91,9 @@ class AuthRepository extends BaseRepository {
   }) async {
     try {
       final userCredential = await auth.signInWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       if (userCredential.user == null) {
         throw "User not found";
       }
