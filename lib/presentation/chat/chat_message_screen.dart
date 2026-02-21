@@ -6,6 +6,8 @@ import 'package:intl/intl.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:messenger_app/data/models/chat_message.dart';
 import 'package:messenger_app/data/services/service_locator.dart';
+import 'package:messenger_app/logic/cubits/chat/chat_cubit.dart';
+import 'package:messenger_app/logic/cubits/chat/chat_state.dart';
 
 class ChatMessageScreen extends StatefulWidget {
   final String receiverId;
