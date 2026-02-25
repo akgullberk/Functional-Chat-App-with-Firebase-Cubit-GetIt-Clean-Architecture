@@ -8,6 +8,7 @@ import 'package:messenger_app/data/services/service_locator.dart';
 import 'package:messenger_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:messenger_app/presentation/chat/chat_message_screen.dart';
 import 'package:messenger_app/presentation/screens/auth/login_screen.dart';
+import 'package:messenger_app/presentation/widgets/chat_list_tile.dart';
 import 'package:messenger_app/router/app_router.dart';
 
 class HomeScreen extends StatefulWidget {
